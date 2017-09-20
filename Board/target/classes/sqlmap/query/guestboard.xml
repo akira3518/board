@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="guest.free.board.dao.GuestBoardDAO">
+	
+	<select id="selectGuestBoard">
+		SELECT
+			boardnum,
+			boardtitle,
+			boardname,
+			boardcdate,
+			boardmdate,
+			boardcontent,
+			boardcount
+		FROM
+			board
+		<where>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(boardtitle)">boardtitle like '%'#{value}'%'</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(boardname)">boardname like '%'#{value}'%'</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(boardcontent)">boardcontent like '%'#{value}'%'</if>
+		</where>
+  		ORDER BY boardnum
+	</select>
+	
+	<update id="insertGuestBoard">
+	</update>
+	
+	<update id="updateGuestBoard">
+	</update>
+	
+	<update id="updateBoardCount">
+	</update>
+	
+	<update id="deleteGuestBoard"></update>
+	
+
+</mapper>

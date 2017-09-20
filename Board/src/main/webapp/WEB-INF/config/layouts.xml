@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<tiles-definitions>
+ 	<!-- Main -->
+  	<definition name="mainContentsTemplate" 
+  			template="/WEB-INF/jsp/layout/mainLayout.jsp" 
+  			preparer="guest.free.board.comm.TilesViewPreparer">
+  		<put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp" />
+  		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
+	</definition>
+	<definition name="content/*" extends="mainContentsTemplate">
+  		<put-attribute name="content" value="/WEB-INF/jsp/content/{1}.jsp" />
+ 	</definition>
+ 	
+<!--  	<definition name="mainContentsEnTemplate" template="/WEB-INF/jsp/Layout/Layout1En.jsp" preparer="MGEMS.Inter.comm.TilesViewPreparer"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/HomeEn" extends="mainContentsEnTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/HomeEn.jsp" /> -->
+<!--  	</definition> -->
+ 	
+ 	
+ 	
+	
+	<!-- Community 1 -->
+<!-- 	<definition name="optiContentsTemplate" template="/WEB-INF/jsp/Layout/OptiLayout.jsp" preparer="MGEMS.Inter.comm.TilesViewPreparer"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/Opti/*" extends="optiContentsTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Opti/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+<!--  	<definition name="optiContentsEnTemplate" template="/WEB-INF/jsp/Layout/OptiLayoutEn.jsp" preparer="MGEMS.Inter.comm.TilesViewPreparer"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/Opti/en/*" extends="optiContentsEnTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Opti/en/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+ 	
+ 	
+	
+	<!-- Community 2 -->
+<!-- 	<definition name="sosContentsTemplate" template="/WEB-INF/jsp/Layout/SosLayout.jsp" preparer="MGEMS.Inter.comm.TilesViewPreparer"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/Sos/*" extends="sosContentsTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Sos/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+<!--  	<definition name="sosContentsEnTemplate" template="/WEB-INF/jsp/Layout/SosLayoutEn.jsp" preparer="MGEMS.Inter.comm.TilesViewPreparer"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/Sos/en/*" extends="sosContentsEnTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Sos/en/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+ 	
+ 	
+ 	
+	<!-- Community 3 -->
+<!-- 	<definition name="clusterContentsTemplate" template="/WEB-INF/jsp/Layout/ClusterLayout.jsp" preparer="MGEMS.Inter.comm.TilesViewPreparer"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/Cluster/*" extends="clusterContentsTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Cluster/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+<!--  	<definition name="clusterContentsEnTemplate" template="/WEB-INF/jsp/Layout/ClusterLayoutEn.jsp" preparer="MGEMS.Inter.comm.TilesViewPreparer"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/Cluster/en/*" extends="clusterContentsEnTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Cluster/en/{1}.jsp" /> -->
+<!--  	</definition> -->
+	
+	
+	
+	
+	<!-- Community 1 - Popup -->
+<!-- 	<definition name="popupContentsTemplate" template="/WEB-INF/jsp/Layout/PopupLayout.jsp"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!--  	<definition name="/Contents/Popup/*" extends="popupContentsTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Popup/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+<!--  	<definition name="popupContentsEnTemplate" template="/WEB-INF/jsp/Layout/PopupLayout.jsp"> -->
+<!--   		<put-attribute name="content" value="" /> -->
+<!-- 	</definition> -->
+<!-- 	<definition name="/Contents/Popup/en/*" extends="popupContentsEnTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Contents/Popup/en/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+ 	
+ 	
+ 	
+ 	<!-- Empty -->
+<!--  	<definition name="EmptyTemplate" template="/WEB-INF/jsp/Layout/EmptyLayout.jsp"> -->
+<!--   		<put-attribute name="EmptyContent" value="" /> -->
+<!-- 	</definition> -->
+ 	
+<!--  	<definition name="/AddSvc/*" extends="EmptyTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/AddSvc/{1}.jsp" /> -->
+<!--  	</definition> 	 -->
+
+<!--  	<definition name="/Account/*" extends="EmptyTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Account/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+<!--  	<definition name="/Setting/*" extends="EmptyTemplate"> -->
+<!--   		<put-attribute name="content" value="/WEB-INF/jsp/Setting/{1}.jsp" /> -->
+<!--  	</definition> -->
+ 	
+</tiles-definitions>
+

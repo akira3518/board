@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+                http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+	
+	<context:component-scan base-package="guest.free">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+	
+	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
+	
+	<bean class="guest.free.board.comm.CustomRequestMappingHandlerAdapter">
+		<property name="webBindingInitializer">
+            <bean class="guest.free.board.comm.BindingInitializer"/>
+        </property>
+        <property name="messageConverters">
+			<list>
+				<ref bean="jacksonMessageConverter"/>
+			</list>
+		</property>
+		<property name="customArgumentResolvers">
+			<list>
+				<bean class="guest.free.board.comm.MapArgumentResolver"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<mvc:annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+<!-- 	<resources mapping="/resources/**" location="/resources/" />  -->
+<!-- 	<resources mapping="/css/**" location="/resources/css/" />  -->
+<!-- 	<resources mapping="/images/**" location="/resources/images/" />  -->
+<!-- 	<resources mapping="/js/**" location="/resources/js/" />  -->
+	
+	<!-- 타일즈를 위한 TilesViewResolver, TilesConfigurer -->
+	<!-- tiles 설정 파일의 경로를 지정 -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/config/layouts.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" 
+		  p:order="1" 
+		  p:viewClass="org.springframework.web.servlet.view.tiles3.TilesView" />
+	
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		p:order="2"
+	    p:viewClass="org.springframework.web.servlet.view.JstlView"
+		p:prefix="/WEB-INF/jsp/"
+		p:suffix=".jsp" 
+		p:contentType="text/html; charset=UTF-8"
+	/>
+	
+	<!-- For Pagination Tag -->
+    <bean id="imageRenderer" class="guest.free.board.comm.ImgPaginationRenderer"/>
+    <bean id="paginationManager" class="egovframework.rte.ptl.mvc.tags.ui.pagination.DefaultPaginationManager">
+        <property name="rendererType">
+            <map>
+                <entry key="image" value-ref="imageRenderer"/>
+            </map>
+        </property>
+    </bean>
+	
+	<context:component-scan base-package="guest.free.board" />
+	
+</beans>
